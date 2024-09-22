@@ -2,6 +2,8 @@ extends StaticBody2D
 
 var Tiletype = preload("res://tiletype.gd")
 
+var tile_type = null
+
 var type: int
 var dicenumber: int
 
