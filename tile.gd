@@ -1,5 +1,10 @@
 extends StaticBody2D
 
+var Tiletype = preload("res://tiletype.gd")
+
+var type: int
+var dicenumber: int
+
 func _ready() -> void:
 	pass
 
