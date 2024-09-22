@@ -5,11 +5,38 @@ var tiles = []
 var type_pool = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
 var dicenumber_pool = [2,3,3,4,4,5,5,5,6,6,8,8,9,9,9,10,10,11,12]
 
-	
-	
-	# create tiles
-var nodes = {}
+var nodes = []
 
+var Tile = preload("res://tile.tscn")
+
+var spacing = 1
+
+func having_node(pos: Vector2):
+	for node in nodes:
+		if (node.position - pos).abs().dot(Vector2(1, 1)) < spacing:
+			return true
+	return false
+
+func generate_nodes_for_tile(tile: Node2D):
+	var pos = tile.position
+	var right = Vector2(64, 0)
+	var diagX = Vector2(cos(1/12.0 * PI*2), 0) * 64
+	var diagY = Vector2(0, sin(1/12.0 * PI*2)) * 64
+	
+	var pos_nodes = []
+	for i in range(6):
+		pos_nodes.append(pos + 64 * Vector2(cos((1/12.0 + i/6.0) * PI*2), sin((1/12.0 + i/6.0) * PI*2)))
+	
+	for p in pos_nodes:
+		if not having_node(p):
+			var node = Tile.instantiate()
+			node.position = p
+			node.scale = Vector2(0.1, 0.1)
+			node.set_color(Color.MEDIUM_VIOLET_RED)
+			$Buildings.add_child(node)
+			nodes.append(node)
+
+# create tiles
 func generate_tiles():
 	var Tile = preload("res://tile.tscn")
 	
@@ -27,16 +54,19 @@ func generate_tiles():
 		for x in range(row_length):
 			var tile = Tile.instantiate()
 			
-			var pos_x = 64 * abs(y) + (x - center_length/2) * 128
-			var pos_y = y * 128 * sin(1/6.0 * 2*PI)
+			var pos_x = (64 * abs(y) + (x - center_length/2) * 128) * cos(1/12.0 * 2*PI) * spacing
+			var pos_y = (y * 128 * sin(1/6.0 * 2*PI)) * cos(1/12.0 * 2*PI) * spacing
 			
 			tile.position = Vector2(pos_x, pos_y)
 			tile.dicenumber = dicenumber_pool.pick_random()
 			dicenumber_pool.erase(tile.dicenumber)
-			tile.Tiletype = type_pool.pick_random()
+			tile.tile_type = type_pool.pick_random()
 			type_pool.erase(tile.dicenumber)
 			$Tiles.add_child(tile)
+			
+			generate_nodes_for_tile(tile)
 	
+	return
 	center_length += 6
 	for y in range(-center_length/2, center_length/2+1):
 		var row_length = center_length - abs(y)
