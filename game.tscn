@@ -4,17 +4,12 @@
 
 [node name="Node2D" type="Node2D"]
 
-[node name="Board" type="StaticBody2D" parent="."]
-position = Vector2(241, 326)
+[node name="Board" type="Node2D" parent="."]
+position = Vector2(361, 333)
 script = ExtResource("1_cldew")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Board"]
-visible = false
-polygon = PackedVector2Array(256, 0, 128, 219.136, -128, 219.136, -256, 0, -128, -219.136, 128, -219.136)
-
-[node name="Polygon2D" type="Polygon2D" parent="Board"]
-scale = Vector2(0.146269, 0.146245)
-color = Color(0.343202, 0.452475, 0.520905, 1)
-polygon = PackedVector2Array(256, 0, 128, 219.136, -128, 219.136, -256, 0, -128, -219.136, 128, -219.136)
-
 [node name="Tiles" type="Node2D" parent="Board"]
+
+[node name="Streets" type="Node2D" parent="Board"]
+
+[node name="Buildings" type="Node2D" parent="Board"]
