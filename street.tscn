@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://cj8kd2w03qu60"]
+
+[ext_resource type="Script" path="res://street.gd" id="1_v01sk"]
+
+[node name="Street" type="StaticBody2D"]
+input_pickable = true
+script = ExtResource("1_v01sk")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+rotation = 0.523599
+polygon = PackedVector2Array(256, 0, 128, 219.136, -128, 219.136, -256, 0, -128, -219.136, 128, -219.136)
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+rotation = 0.523599
+color = Color(0.12036, 0.254279, 0.257739, 1)
+polygon = PackedVector2Array(256, 0, 128, 219.136, -128, 219.136, -256, 0, -128, -219.136, 128, -219.136)
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

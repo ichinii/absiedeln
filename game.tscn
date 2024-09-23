@@ -1,11 +1,20 @@
-[gd_scene load_steps=2 format=3 uid="uid://c67ubk3e2kmq3"]
+[gd_scene load_steps=3 format=3 uid="uid://c67ubk3e2kmq3"]
 
 [ext_resource type="Script" path="res://board.gd" id="1_cldew"]
+[ext_resource type="Script" path="res://camera.gd" id="2_65oul"]
 
 [node name="Node2D" type="Node2D"]
 
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(88.9128, 86.7144)
+color = Color(0.419813, 0.419813, 0.419813, 1)
+
 [node name="Board" type="Node2D" parent="."]
-position = Vector2(361, 333)
+position = Vector2(628, 502)
+scale = Vector2(2, 2)
 script = ExtResource("1_cldew")
 
 [node name="Tiles" type="Node2D" parent="Board"]
@@ -13,3 +22,6 @@ script = ExtResource("1_cldew")
 [node name="Streets" type="Node2D" parent="Board"]
 
 [node name="Buildings" type="Node2D" parent="Board"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("2_65oul")
