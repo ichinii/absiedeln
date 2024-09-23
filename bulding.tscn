@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://bulding.gd" id="1_udi8u"]
 
 [node name="Bulding" type="StaticBody2D"]
+input_pickable = true
 script = ExtResource("1_udi8u")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
@@ -13,3 +14,7 @@ polygon = PackedVector2Array(256, 0, 128, 219.136, -128, 219.136, -256, 0, -128,
 rotation = 0.523599
 color = Color(0.270588, 0.219608, 0.141176, 1)
 polygon = PackedVector2Array(256, 0, 128, 219.136, -128, 219.136, -256, 0, -128, -219.136, 128, -219.136)
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
