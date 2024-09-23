@@ -1,17 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://tor10ah34ddu"]
+[gd_scene load_steps=3 format=3 uid="uid://tor10ah34ddu"]
 
 [ext_resource type="Script" path="res://tile.gd" id="1_reqe4"]
+[ext_resource type="Texture2D" uid="uid://mdduckksd8un" path="res://sprites/wiese_PP.png" id="2_27tiq"]
 
 [node name="Tile" type="StaticBody2D"]
-rotation = 0.523599
 scale = Vector2(0.25, 0.25)
 input_pickable = true
 script = ExtResource("1_reqe4")
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+[node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
+rotation = 0.523599
 polygon = PackedVector2Array(256, 0, 128, 219.136, -128, 219.136, -256, 0, -128, -219.136, 128, -219.136)
 
-[node name="Polygon2D" type="Polygon2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3.5, 3.5)
+texture = ExtResource("2_27tiq")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+rotation = 0.523599
 polygon = PackedVector2Array(256, 0, 128, 219.136, -128, 219.136, -256, 0, -128, -219.136, 128, -219.136)
 
 [node name="Label" type="Label" parent="."]

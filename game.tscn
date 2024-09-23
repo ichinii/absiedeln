@@ -4,8 +4,15 @@
 
 [node name="Node2D" type="Node2D"]
 
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+scale = Vector2(88.9128, 86.7144)
+color = Color(0.419813, 0.419813, 0.419813, 1)
+
 [node name="Board" type="Node2D" parent="."]
-position = Vector2(361, 333)
+position = Vector2(628, 502)
+scale = Vector2(2, 2)
 script = ExtResource("1_cldew")
 
 [node name="Tiles" type="Node2D" parent="Board"]
