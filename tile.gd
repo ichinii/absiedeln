@@ -8,7 +8,7 @@ var type: int
 var dicenumber: int
 
 func _ready() -> void:
-	pass
+	$Label.text = str(dicenumber)
 
 func _process(delta: float) -> void:
 	pass
