@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://c67ubk3e2kmq3"]
+[gd_scene load_steps=3 format=3 uid="uid://c67ubk3e2kmq3"]
 
 [ext_resource type="Script" path="res://board.gd" id="1_cldew"]
+[ext_resource type="Script" path="res://camera.gd" id="2_65oul"]
 
 [node name="Node2D" type="Node2D"]
 
@@ -21,3 +22,6 @@ script = ExtResource("1_cldew")
 [node name="Streets" type="Node2D" parent="Board"]
 
 [node name="Buildings" type="Node2D" parent="Board"]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("2_65oul")
