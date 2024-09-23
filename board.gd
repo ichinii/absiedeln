@@ -2,7 +2,7 @@ extends Node2D
 
 var center_length = 5
 var tiles = []
-var type_pool = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1]
+var type_pool = [1,1,1,1,1,1,2,2,2,2,2,2,4,4,4,4,4,4,4]
 var dicenumber_pool = [2,3,3,4,4,5,5,5,6,6,8,8,9,9,9,10,10,11,12]
 
 var nodes = []
