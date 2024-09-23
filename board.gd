@@ -71,9 +71,10 @@ func generate_tiles():
 	# check whether parameters for map initialization are legit
 	assert(center_length >= 4, "The minimum center length is 4!")
 	var number_of_tiles = center_length + 2*3
-	for i in range(4, center_length):
+
+	for i in range(4,center_length):
 		number_of_tiles += i*2
-	print(number_of_tiles)
+
 	assert(len(type_pool) == number_of_tiles, "Size of type_pool not matching number of tiles!")
 	assert(len(dicenumber_pool) == number_of_tiles,"Size of number_pool not matching number of tiles!")
 	

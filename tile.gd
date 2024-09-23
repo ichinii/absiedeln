@@ -11,7 +11,7 @@ var buildings = []
 var streets = []
 
 func _ready() -> void:
-	pass
+	$Label.text = str(dicenumber)
 
 func _process(delta: float) -> void:
 	pass
