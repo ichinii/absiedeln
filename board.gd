@@ -90,8 +90,9 @@ func generate_tiles():
 			tile.position = Vector2(pos_x, pos_y)
 			tile.dicenumber = dicenumber_pool.pick_random()
 			dicenumber_pool.erase(tile.dicenumber)
-			tile.set_tile_type(type_pool.pick_random())
-			type_pool.erase(tile.dicenumber)
+			var tile_type = type_pool.pick_random()
+			tile.set_tile_type(tile_type)
+			type_pool.erase(tile_type)
 			$Tiles.add_child(tile)
 			
 			generate_buildings_for_tile(tile)
