@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://ck46xevayp0qw"]
+[gd_scene load_steps=2 format=3 uid="uid://ck46xevayp0qw"]
+
+[ext_resource type="Script" path="res://bulding.gd" id="1_udi8u"]
 
 [node name="Bulding" type="StaticBody2D"]
+script = ExtResource("1_udi8u")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 rotation = 0.523599

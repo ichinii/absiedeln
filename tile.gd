@@ -7,6 +7,9 @@ var tile_type = null
 var type: int
 var dicenumber: int
 
+var buildings = []
+var streets = []
+
 func _ready() -> void:
 	pass
 
@@ -14,7 +17,8 @@ func _process(delta: float) -> void:
 	pass
 
 func set_color(color: Color):
-	$Polygon2D.color = color
+	$Sprite2D.modulate = color
+	print("x")
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	var is_click = event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT

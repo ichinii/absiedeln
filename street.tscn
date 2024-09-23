@@ -1,6 +1,9 @@
-[gd_scene format=3 uid="uid://cj8kd2w03qu60"]
+[gd_scene load_steps=2 format=3 uid="uid://cj8kd2w03qu60"]
+
+[ext_resource type="Script" path="res://street.gd" id="1_v01sk"]
 
 [node name="Street" type="StaticBody2D"]
+script = ExtResource("1_v01sk")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
 visible = false

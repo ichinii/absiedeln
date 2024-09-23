@@ -11,14 +11,14 @@ var Tile = preload("res://tile.tscn")
 var Street = preload("res://street.tscn")
 var Building = preload("res://bulding.tscn")
 
-var spacing = 1.1
+var spacing = 1.05
 var spacing_diag = spacing * cos(1/12.0 * 2*PI)
 
 func having_node(pos: Vector2):
 	for node in nodes:
 		if (node.position - pos).abs().dot(Vector2(1, 1)) < spacing:
-			return true
-	return false
+			return node
+	return null
 
 func generate_buildings_for_tile(tile: Node2D):
 	var pos = tile.position
@@ -33,13 +33,17 @@ func generate_buildings_for_tile(tile: Node2D):
 		p += pos
 		pos_nodes.append(p)
 	
-	for p in pos_nodes:
+	for i in len(pos_nodes):
+		var p = pos_nodes[i]
 		if not having_node(p):
 			var node = Building.instantiate()
 			node.position = p
-			node.scale = Vector2(0.1, 0.1) * 0.2
+			node.scale = Vector2(0.1, 0.1) * 0.6
 			$Buildings.add_child(node)
 			nodes.append(node)
+			
+			tile.buildings.append(node)
+			node.tiles.append(tile)
 
 func generate_streets_for_tile(tile: Node2D):
 	var pos = tile.position
@@ -58,7 +62,7 @@ func generate_streets_for_tile(tile: Node2D):
 		if not having_node(p):
 			var node = Street.instantiate()
 			node.position = p
-			node.scale = Vector2(0.1, 0.1) * 0.2
+			node.scale = Vector2(0.1, 0.1) * 0.4
 			$Buildings.add_child(node)
 			nodes.append(node)
 
